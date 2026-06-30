@@ -29,7 +29,7 @@ public class ChatServiceImpl implements ChatService{
         return this.chatClient
 
                 .prompt()
-                .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID,"default"))
+                .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID,userId))
 //                .advisors(new SimpleLoggerAdvisor())
                 .system(system ->
                         system.text(this.systemMessage))

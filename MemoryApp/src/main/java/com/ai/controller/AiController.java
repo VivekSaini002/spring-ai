@@ -16,9 +16,10 @@ public class AiController {
 
     @GetMapping("/chat")
     public ResponseEntity<String> chat(
-            @RequestParam(value = "q", required = true) String q
+            @RequestParam(value = "q", required = true) String q,
+            @RequestHeader(value = "userId") String userId
     ) {
-        return ResponseEntity.ok(chatService.chatTemplate(q,"default"));
+        return ResponseEntity.ok(chatService.chatTemplate(q,userId));
     }
 
 
