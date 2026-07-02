@@ -7,8 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="DemoAi" />
+      </profile>
+      <profile name="Annotation profile for RagApp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="RagApp" />
         <module name="MemoryApp" />
+        <module name="DemoAi" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DemoAi" options="-parameters" />
       <module name="MemoryApp" options="-parameters" />
+      <module name="RagApp" options="-parameters" />
     </option>
   </component>
 </project>
