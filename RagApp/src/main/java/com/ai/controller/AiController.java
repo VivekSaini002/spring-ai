@@ -19,7 +19,7 @@ public class AiController {
             @RequestParam(value = "q", required = true) String q,
             @RequestHeader(value = "userId") String userId
     ) {
-        return ResponseEntity.ok(chatService.chatTemplate(q,userId));
+        return ResponseEntity.ok(chatService.chatTemplate(q, userId));
     }
 
 
