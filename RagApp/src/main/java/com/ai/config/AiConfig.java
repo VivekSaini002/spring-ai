@@ -39,7 +39,7 @@ public class AiConfig {
 
         return builder
                 .defaultAdvisors(messageChatMemoryAdvisor, new SimpleLoggerAdvisor())
-                .defaultSystem("You are a helpful coding assistant. You are an expert in coding.")
+//                .defaultSystem("You are a helpful coding assistant. You are an expert in coding.")
                 .build();
     }
 

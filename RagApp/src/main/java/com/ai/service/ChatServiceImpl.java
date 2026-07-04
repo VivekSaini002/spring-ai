@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
+import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,25 +40,34 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public String chatTemplate(String query, String userId) {
 
-        SearchRequest searchRequest = SearchRequest.builder()
-                .topK(5)
-                .similarityThreshold(0.6)
-                .query(query)
-                .build();
+//        SearchRequest searchRequest = SearchRequest.builder()
+//                .topK(5)
+//                .similarityThreshold(0.6)
+//                .query(query)
+//                .build();
+//
+//        List<Document> documents = this.vectorStore.similaritySearch(searchRequest);
+//        List<String> documentList = documents.stream().map(Document::getText).toList();
+//        String contextData = String.join(", ", documentList);
+//        logger.info("Context Data: {}", contextData);
 
-        List<Document> documents = this.vectorStore.similaritySearch(searchRequest);
-        List<String> documentList = documents.stream().map(Document::getText).toList();
-        String contextData = String.join(", ", documentList);
-        logger.info("Context Data: {}", contextData);
+        var advisor = RetrievalAugmentationAdvisor.builder()
+                .documentRetriever(VectorStoreDocumentRetriever.builder()
+                        .vectorStore(this.vectorStore)
+                        .topK(3)
+                        .similarityThreshold(0.7)
+                        .build())
+                .build();
 
 
         return this.chatClient
 
                 .prompt()
+                .advisors(advisor)
                 .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID,userId))
 //                .advisors(new SimpleLoggerAdvisor())
-                .system(system ->
-                        system.text(this.systemMessage).param("documents", contextData))
+//                .system(system ->
+//                        system.text(this.systemMessage).param("documents", contextData))
                 .user(user ->
                         user.text(this.userMessage).param("query", query))
                 .call()
