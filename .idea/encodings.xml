@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/AdvanceRag/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DemoAi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DockerModel/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MemoryApp/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RagApp/src/main/java" charset="UTF-8" />
   </component>
