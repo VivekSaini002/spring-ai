@@ -14,7 +14,7 @@ class DockerModelApplicationTests {
 	@Test
 	void testChatClient() {
 		System.out.println("Started testing chat client");
-		String query = "write java program to print hello world";
+		String query = "Hi";
 		var response = this.chatClient.prompt()
 				.user(query)
 				.call()

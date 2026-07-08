@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/RagApp/pom.xml" />
         <option value="$PROJECT_DIR$/AdvanceRag/pom.xml" />
         <option value="$PROJECT_DIR$/DockerModel/pom.xml" />
+        <option value="$PROJECT_DIR$/ToolCalling/pom.xml" />
       </list>
     </option>
   </component>
