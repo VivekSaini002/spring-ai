@@ -8,7 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for DockerModel" enabled="true">
+      <profile name="Annotation profile for ToolCalling" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+        </processorPath>
+        <module name="ToolCalling" />
+      </profile>
+      <profile name="Annotation profile for RagApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -22,14 +32,14 @@
         <module name="RagApp" />
         <module name="DemoAi" />
       </profile>
-      <profile name="Annotation profile for ToolCalling" enabled="true">
+      <profile name="Annotation profile for HelpDeskBackend" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="ToolCalling" />
+        <module name="HelpDeskBackend" />
       </profile>
     </annotationProcessing>
   </component>
@@ -38,6 +48,7 @@
       <module name="AdvanceRag" options="-parameters" />
       <module name="DemoAi" options="-parameters" />
       <module name="DockerModel" options="-parameters" />
+      <module name="HelpDeskBackend" options="-parameters" />
       <module name="MemoryApp" options="-parameters" />
       <module name="RagApp" options="-parameters" />
       <module name="ToolCalling" options="-parameters" />
