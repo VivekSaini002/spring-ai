@@ -18,7 +18,6 @@ public class TicketService {
     private final TicketRepository ticketRepository;
 
     //create ticket
-
     @Transactional
     public Ticket createTicket(Ticket ticket) {
         ticket.setId(null);
@@ -26,7 +25,6 @@ public class TicketService {
     }
 
     //update ticket
-
     @Transactional
     public Ticket updateTicket(Ticket ticket) {
         return ticketRepository.save(ticket);

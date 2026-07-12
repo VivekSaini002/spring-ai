@@ -1,5 +1,5 @@
 package com.ai.entity;
 
 public enum Priority {
-    LOW, MEDIUM, HIGH,URGENT
+    LOW, MEDIUM, HIGH, URGENT
 }

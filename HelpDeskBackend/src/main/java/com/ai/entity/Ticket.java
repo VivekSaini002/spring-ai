@@ -3,6 +3,7 @@ package com.ai.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Ticket {
+public class Ticket implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +26,10 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    private String category;
+    private  String category;
 
     @Column(length = 1000)
-    private String description;
+    private  String description;
 
     @Column(unique = true)
     private String email;
@@ -40,15 +41,16 @@ public class Ticket {
     private Status status;
 
     @PrePersist
-    void preSave() {
-        if (this.createdOn == null) {
+    void preSave(){
+        if(this.createdOn == null){
             this.createdOn = LocalDateTime.now();
         }
         this.updatedOn = LocalDateTime.now();
     }
 
     @PreUpdate
-    void preUpdate() {
+    void preUpdate(){
         this.updatedOn = LocalDateTime.now();
     }
+
 }
