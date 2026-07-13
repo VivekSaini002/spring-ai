@@ -19,13 +19,13 @@ spring:
         api-key: ${GEMINI_API_KEY}
         chat:
           options:
-            model: gemini-2.5-flash
+            model: gemini-2.5-flash-lite
 
-#    chat:
-#      memory:
-#        repository:
-#          jdbc:
-#            initialize-schema: always
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
 #  profiles:
 #    active: dev
 

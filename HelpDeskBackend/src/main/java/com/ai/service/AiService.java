@@ -8,6 +8,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +30,16 @@ public class AiService {
                 .system(systemPrompt)
                 .user(query)
                 .call()
+                .content();
+    }
+
+    public Flux<String> streamResponseFromAssistant(String query, String conversationId){
+        return chatClient.prompt()
+                .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID, conversationId))
+                .tools(ticketDatabaseTool, emailTool)
+                .system(systemPrompt)
+                .user(query)
+                .stream()
                 .content();
     }
 }
