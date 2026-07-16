@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: SpeechToText
+  ai:
+    openai:
+      api-key: ${API_KEY}
+      base-url: https://api.groq.com/openai/v1
+      audio:
+        transcription:
+          model: whisper-large-v3
+#  servlet:
+#    multipart:
+#      max-file-size: 25MB
+#      max-request-size: 25MB
